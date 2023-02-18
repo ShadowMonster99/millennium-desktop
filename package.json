@@ -1,0 +1,27 @@
+{
+  "name": "millennium",
+  "version": "1.0.0",
+  "description": "free movie player",
+  "main": "mainproc/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "ShadowMonster",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^23.0.0",
+    "node-sass": "^8.0.0"
+  },
+  "dependencies": {
+    "async": "^3.2.4",
+    "body-parser": "^1.20.1",
+    "crypto": "^1.0.1",
+    "electron-store": "^8.1.0",
+    "express": "^4.18.2",
+    "jsdom": "^21.1.0",
+    "lazyload": "^2.0.0-rc.2",
+    "node-gyp": "^9.3.1",
+    "request": "^2.88.2",
+    "request-cache": "^0.1.3"
+  }
+}

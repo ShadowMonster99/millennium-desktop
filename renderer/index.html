@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Import Poppins font face -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Millennium</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+     <!-- Logo CSS Files -->
+    <link rel="stylesheet" href="assets/css/logo.css">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+
+     <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Interact with API-->
+    <script src="assets/js/millennium-client.js"></script>
+</head>
+
+<body class="dark">
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <div id="millennium">
+                        <div class="ellipse"></div>
+                        <div class="dot"></div>
+                    </div>
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">ShadowMonster</span>
+                    <span class="profession">Developer</span>
+                </div>
+            </div>
+
+            <!-- Work in progress, not yet implemented -->
+            <!--<i class='bx bx-chevron-right toggle'></i>-->
+        </header>
+
+        <script>
+            async function update_panel(selection)
+            {
+                $('#home').css('background-color', '');
+                $('#movie').css('background-color', '');
+                $('#tv').css('background-color', '');
+                $('#download').css('background-color', '');
+                $('#liked').css('background-color', '');
+                $('#settings').css('background-color', '');
+
+                switch(selection) {
+                    case 1:
+                        $('#home').css('background-color', '#3a3b3c');
+                        document.getElementsByClassName('contentarea')[0].innerHTML = await (await fetch(`./viewport/browse.html`)).text();
+                        getListing();
+                        break;
+                    case 2:
+                        $('#movie').css('background-color', '#3a3b3c');
+                        break;
+                    case 3:
+                        $('#tv').css('background-color', '#3a3b3c');
+                        document.getElementsByClassName('contentarea')[0].innerHTML = await (await fetch(`./viewport/tv.html`)).text();
+                        break;
+                    case 4:
+                        $('#download').css('background-color', '#3a3b3c');
+                        break;
+                    case 5:
+                        $('#liked').css('background-color', '#3a3b3c');
+                        break;
+                    case 6:
+                        $('#settings').css('background-color', '#3a3b3c');
+                        break;
+                    default:
+                        // code block
+                }
+            }
+        </script>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <!--<li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="text" placeholder="Search...">
+                </li>-->
+
+                <hr class="solid">
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#" onclick="update_panel(1)">
+                            <i class='bx bx-home-alt icon' id="home" style="background-color: #3a3b3c"></i>
+                            <span class="text nav-text">Browse</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#" onclick="update_panel(2)">
+                            <i class='bx bx-movie icon' id="movie"></i>
+                            <span class="text nav-text">Movies</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#" onclick="update_panel(3)">
+                            <i class='bx bx-tv icon' id="tv"></i>
+                            <span class="text nav-text">Shows</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#" onclick="update_panel(5)">
+                            <i class='bx bx-heart icon' id="liked"></i>
+                            <span class="text nav-text">Likes</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <!--<li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>-->
+                <hr class="solid">
+
+                <li class="">
+                    <a href="#" onclick="update_panel(4)">
+                        <i class='bx bx-download icon' id="download"></i>
+                        <span class="text nav-text">Download</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="#" onclick="update_panel(6)">
+                        <i class='bx bx-cog icon' id="settings"></i>
+                        <span class="text nav-text">Settings</span>
+                    </a>
+                </li>
+
+                <!-- Light mode and dark mode (work in progress) -->
+                <!--<li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>-->
+                
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+
+        <!-- ***** Header Area Start ***** -->
+        <header class="header-area header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="main-nav">
+
+                            <li class="backarrow">
+                                <a href="#" onclick="goback()">
+                                    <i class='bx bx-arrow-back icon' id="settings"></i>
+                                </a>
+                            </li>
+
+                            <!-- ***** Search End ***** -->
+                            <div class="search-input">
+                                <form id="search" action="./viewport/search.html">
+                                    <input type="text" placeholder="I'm looking for..." id='searchText' name="searchKeyword"/>
+                                    <i class="fa fa-search"></i>
+                                </form>
+                            </div>
+                            <!-- ***** Search End ***** -->
+                            <!-- ***** Menu Start ***** -->
+                            <ul class="nav">
+                                <!-- Placeholder as of now -->
+                                <li><a href="#">ShadowMonster<img src="https://i.pinimg.com/280x280_RS/35/b6/df/35b6dfd9133e581674a567c9e627dc3e.jpg" alt=""></a></li>
+                            </ul>
+                            <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                            <!-- ***** Menu End ***** -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ***** Header Area End ***** -->
+
+        <!-- ***** Content Area Start ***** -->
+        <section class="contentarea"></section>
+        <!-- ***** Content Area End ***** -->
+
+        <footer id="foot">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright © 2023 <a href="#">Project-Millennium</a>. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </section>
+
+    <script>
+
+
+
+        const body = document.querySelector('body'),
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text")
+
+        // toggle.addEventListener("click" , () =>{
+        //     sidebar.classList.toggle("close");
+        // })
+
+        //TODO
+        function goback()
+        {
+            //history goback wont work because we never redirect, instead we load more html when needed
+            //need fix...
+        }
+
+        modeSwitch.addEventListener("click" , () =>
+        {
+            body.classList.toggle("dark");
+            
+            console.log('switching theme')
+
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Light mode";
+            }else{
+                modeText.innerText = "Dark mode";            
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('foot').style.display = 'none';
+        window.onload = async function() 
+        {
+            const content = document.getElementsByClassName('contentarea')[0];
+            content.innerHTML = await (await fetch('./viewport/browse.html')).text();
+            getListing();
+            document.getElementById('foot').style.display = 'block';
+
+            searchSubmit = body.querySelector("#search");
+
+            searchSubmit.addEventListener("submit",  async function(e) 
+            {
+                e.preventDefault(); // Prevent the form from actually submitting
+                const _search = new FormData(e.target).get('searchKeyword')
+
+                content.innerHTML = await (await fetch(`./viewport/search.html`)).text();
+                document.getElementsByClassName('heading-section')[0].children[0].innerHTML = `<em>Results for: </em> ${_search}`
+                search(_search);
+            })
+        }
+    </script>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <div class="dragbar"></div>
+
+    <!-- Tacky, dont like them as of now, need to change -->
+    <!--<div class="closebutton" id="close"></div>
+    <div class="maximize" id="max"></div>
+    <div class="minimize" id="min"></div>-->
+
+    <script>
+        //const {ipcRenderer} = require('electron');
+
+        var min   = document.getElementById("min");
+        var max   = document.getElementById("max");
+        var close = document.getElementById("close");
+
+        min  .addEventListener("click", () => ipcRenderer.send('min'))
+        max  .addEventListener("click", () => ipcRenderer.send('max'))
+        close.addEventListener("click", () => ipcRenderer.send('close'))
+
+    </script>
+
+</body>
+
+</html>
