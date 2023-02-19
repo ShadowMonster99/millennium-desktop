@@ -29,9 +29,9 @@ const createWindow = () => {
         width: 1100,
         height: 800,
         //1016 - 16 = 1000 min viewport width
-        minWidth:1016,
+        minWidth:800,
         //749 - 39 = 710 min viewport height
-        minHeight:749,
+        minHeight:600,
         autoHideMenuBar: true,
         show: false
     })

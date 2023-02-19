@@ -64,15 +64,16 @@
 
     $(window).on('resize', function() {
 
-        // if ($(window).width() > 1200) 
-        // {
-        //   $('.col-sm-3').removeClass('col-sm-3').addClass('col-sm-2');
-        // }
-        // else
-        // {
-        //     $('.col-sm-2').removeClass('col-sm-2').addClass('col-sm-3');
-        // }
-      });
+        if ($(window).width() < 992) 
+        {
+            $('.col-2').removeClass('col-2').addClass('col-sm-3');
+        }
+        else
+        {
+            $('.col-sm-3').removeClass('col-sm-3').addClass('col-2');
+        }
+    });
+
 
     $(document).on("click", ".naccs .menu div", function() {
         var numberIndex = $(this).index();

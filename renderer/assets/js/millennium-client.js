@@ -115,6 +115,15 @@ function create_listing(obj, num)
     // }
     // else { container.classList.add('col-sm-2'); }
 
+    if ($(window).width() < 992)
+    {
+        container.classList.add('col-sm-3'); 
+    }
+    else
+    {
+        container.classList.add('col-2'); 
+    }
+
     const item = document.createElement('div');
     item.classList.add('item', 'before-loaded');
 
